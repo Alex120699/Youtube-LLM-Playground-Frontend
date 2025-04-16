@@ -8,6 +8,7 @@ function SummarizeVideo() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [summary, setSummary] = useState('');
+  const backendURL = process.env.REACT_APP_BACKEND_URL;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -16,7 +17,7 @@ function SummarizeVideo() {
     setSummary('');
 
     try {
-      const response = await axios.post('http://localhost:5000/summarize/summarize', { url });
+      const response = await axios.post(`${backendURL}/summarize`, { url });
       setSummary(response.data.summary);
     } catch (err) {
       setError(err.response?.data?.error || 'Error al generar el resumen');

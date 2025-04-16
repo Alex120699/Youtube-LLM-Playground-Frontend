@@ -6,6 +6,7 @@ function Transcriber() {
   const [transcript, setTranscript] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const backendURL = process.env.REACT_APP_BACKEND_URL;
 
   const handleTranscribe = async () => {
     if (!url) return;
@@ -15,7 +16,7 @@ function Transcriber() {
     setError('');
 
     try {
-      const response = await axios.post('http://localhost:5000/transcribe', {
+      const response = await axios.post(`${backendURL}/transcribe`, {
         url: url
       });
 

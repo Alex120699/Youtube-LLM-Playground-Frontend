@@ -7,6 +7,7 @@ function TopWords() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [results, setResults] = useState(null);
+  const backendURL = process.env.REACT_APP_BACKEND_URL;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -15,7 +16,7 @@ function TopWords() {
     setResults(null);
 
     try {
-      const response = await axios.post('http://localhost:5000/top-words/analyze', { url });
+      const response = await axios.post(`${backendURL}/analyze`, { url });
       setResults(response.data.top_words);
     } catch (err) {
       setError(err.response?.data?.error || 'Error al analizar el video');

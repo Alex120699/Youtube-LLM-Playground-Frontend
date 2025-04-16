@@ -8,7 +8,8 @@ function ChatWithVideo() {
   const [loading, setLoading] = useState(false);
   const [transcribed, setTranscribed] = useState(false);
   const [streamingContent, setStreamingContent] = useState('');
-
+  const backendURL = process.env.REACT_APP_BACKEND_URL;
+  
   const handleTranscribe = async () => {
     if (!videoURL.trim()) {
       alert('Please enter a video URL.');
@@ -17,7 +18,7 @@ function ChatWithVideo() {
 
     setLoading(true);
     try {
-      const response = await axios.post('http://localhost:5000/transcribe', {
+      const response = await axios.post(`${backendURL}/transcribe`, {
         url: videoURL,
       });
 
@@ -51,7 +52,7 @@ function ChatWithVideo() {
     setStreamingContent('');
 
     try {
-      const response = await fetch('http://localhost:5000/chat', {
+      const response = await fetch(`${backendURL}/chat`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

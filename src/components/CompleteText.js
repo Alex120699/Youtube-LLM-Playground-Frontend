@@ -10,6 +10,7 @@ function CompleteText() {
   const [hiddenWords, setHiddenWords] = useState({});
   const [userAnswers, setUserAnswers] = useState({});
   const [results, setResults] = useState(null);
+  const backendURL = process.env.REACT_APP_BACKEND_URL;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -21,7 +22,7 @@ function CompleteText() {
     setResults(null);
 
     try {
-      const response = await axios.post('http://localhost:5000/complete-text/get-text', { url });
+      const response = await axios.post(`${backendURL}/complete-text/get-text`, { url });
       setText(response.data.text);
       setHiddenWords(response.data.hidden_words);
     } catch (err) {
@@ -40,7 +41,7 @@ function CompleteText() {
 
   const handleValidate = async () => {
     try {
-      const response = await axios.post('http://localhost:5000/complete-text/validate', {
+      const response = await axios.post(`${backendURL}/validate`, {
         answers: userAnswers,
         hidden_words: hiddenWords
       });
