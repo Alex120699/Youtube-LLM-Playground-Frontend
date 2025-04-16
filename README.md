@@ -1,70 +1,77 @@
-# Getting Started with Create React App
+# YouTube Video Analysis Tool
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A powerful full-stack application that combines React and Python to analyze YouTube videos using AI. The application provides multiple features for processing and interacting with video content.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Video Transcription**: Transcribe YouTube videos using OpenAI's Whisper model
+- **Video Summarization**: Generate concise summaries of video content using Ollama
+- **Top Words Analysis**: Identify and display the most frequently used words in videos
+- **Text Completion Exercise**: Create interactive exercises by hiding words from the transcript
+- **Interactive Chat**: Ask questions about the video content with AI-powered responses
 
-### `npm start`
+## Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Frontend
+- React
+- React Bootstrap
+- React Router
+- Axios for API calls
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Backend
+- Flask
+- OpenAI Whisper for transcription
+- Ollama for LLM capabilities
+- PyTubeFix for YouTube video processing
 
-### `npm test`
+## Getting Started
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Frontend Setup
+1. Navigate to the `frontend` directory
+2. Install dependencies:
+```bash
+npm install
+```
+3. Start the development server:
+```bash
+npm start
+```
 
-### `npm run build`
+### Backend Setup
+1. Navigate to the `backend` directory
+2. Create a virtual environment:
+```bash
+python -m venv venv
+venv\Scripts\activate.bat
+```
+3. Install dependencies:
+```bash
+pip install -r requirements.txt
+```
+4. Start the Flask server:
+```bash
+python app.py
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Environment Requirements
+### Frontend
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Node.js
+- npm
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Backend
+- Python 3.x
+- CUDA-compatible GPU (recommended for Whisper)
+- FFmpeg
+- Ollama server running locally
 
-### `npm run eject`
+## Environment Variables
+### Backend
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Create a `.env` file in the backend directory:
+```bash
+MODEL_NAME=llama3.1
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## License
+MIT License
