@@ -22,7 +22,7 @@ function App() {
                 <Nav.Link as={Link} to="/complete-text">Complete Text</Nav.Link>
                 <Nav.Link as={Link} to="/summarize">Summarize Video</Nav.Link>
                 <Nav.Link as={Link} to="/transcribe">Transcribe Video</Nav.Link>
-                <Nav.Link as={Link} to="/chat">Chat with Video</Nav.Link>
+                <Nav.Link as={Link} to="/chat">Chat with Video v2</Nav.Link>
               </Nav>
             </Navbar.Collapse>
           </Container>
