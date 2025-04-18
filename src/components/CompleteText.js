@@ -43,7 +43,7 @@ function CompleteText() {
 
   const handleValidate = async () => {
     try {
-      const response = await axios.post(`${backendURL}/validate`, {
+      const response = await axios.post(`${backendURL}/complete-text/validate`, {
         answers: userAnswers,
         hidden_words: hiddenWords
       });
