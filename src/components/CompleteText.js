@@ -23,9 +23,11 @@ function CompleteText() {
 
     try {
       const response = await axios.post(`${backendURL}/complete-text/get-text`, { url });
+      console.log(response.data);  // Verificar la respuesta completa
       setText(response.data.text);
       setHiddenWords(response.data.hidden_words);
     } catch (err) {
+      console.error(err);  // Ver todo el error
       setError(err.response?.data?.error || 'Error al analizar el video');
     } finally {
       setLoading(false);
