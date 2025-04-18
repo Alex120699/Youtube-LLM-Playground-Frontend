@@ -16,7 +16,7 @@ function TopWords() {
     setResults(null);
 
     try {
-      const response = await axios.post(`${backendURL}/analyze`, { url });
+      const response = await axios.post(`${backendURL}/top-words/analyze`, { url });
       setResults(response.data.top_words);
     } catch (err) {
       setError(err.response?.data?.error || 'Error al analizar el video');
