@@ -20,6 +20,7 @@ function SummarizeVideo() {
       const response = await axios.post(`${backendURL}/summarize`, { url });
       setSummary(response.data.summary);
     } catch (err) {
+      console.error('Error details:', err);
       setError(err.response?.data?.error || 'Error al generar el resumen');
     } finally {
       setLoading(false);
@@ -66,7 +67,10 @@ function SummarizeVideo() {
 
       {error && (
         <Alert variant="danger">
-          {error}
+          <Alert.Heading>Error</Alert.Heading>
+          <pre style={{ whiteSpace: 'pre-wrap' }}>
+            {error}
+          </pre>
         </Alert>
       )}
 
