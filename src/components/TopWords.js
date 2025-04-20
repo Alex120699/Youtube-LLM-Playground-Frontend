@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Container, Form, Button, Card, ListGroup, Spinner, Alert } from 'react-bootstrap';
+//import './TopWords.css'; // Nuevo CSS
+import { Form, Button, Card, ListGroup, Spinner, Alert } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
+import { FaYoutube } from 'react-icons/fa'; // Ícono decorativo
 
 function TopWords() {
   const [url, setUrl] = useState('');
@@ -26,23 +29,27 @@ function TopWords() {
   };
 
   return (
-    <Container className="mt-5">
-      <h1 className="text-center mb-4">Palabras más frecuentes</h1>
-      
-      <Card className="mb-4">
-        <Card.Body>
+    <div className="topwords-background">
+      <Container className="py-5">
+        <h1 className="text-center text-light mb-5 title-glow">Top Palabras del Video</h1>
+
+        <div className="glass-card mx-auto mb-4 p-4">
           <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3">
-              <Form.Label>URL del video de YouTube</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="https://www.youtube.com/watch?v=..."
-                value={url}
-                onChange={(e) => setUrl(e.target.value)}
-                required
-              />
+              <Form.Label className="text-white">URL del video de YouTube</Form.Label>
+              <div className="input-with-icon">
+                <FaYoutube className="input-icon" />
+                <input
+                  className="input-glass"
+                  type="text"
+                  placeholder="https://www.youtube.com/watch?v=..."
+                  value={url}
+                  onChange={(e) => setUrl(e.target.value)}
+                  required
+                />
+              </div>
             </Form.Group>
-            <Button variant="primary" type="submit" disabled={loading}>
+            <Button className="custom-btn" type="submit" disabled={loading}>
               {loading ? (
                 <>
                   <Spinner
@@ -60,32 +67,28 @@ function TopWords() {
               )}
             </Button>
           </Form>
-        </Card.Body>
-      </Card>
+        </div>
 
-      {error && (
-        <Alert variant="danger">
-          {error}
-        </Alert>
-      )}
+        {error && <Alert variant="danger">{error}</Alert>}
 
-      {results && (
-        <Card>
-          <Card.Header>Top 10 palabras más frecuentes</Card.Header>
-          <ListGroup variant="flush">
-            {results.map((item, index) => (
-              <ListGroup.Item key={index}>
-                <div className="d-flex justify-content-between align-items-center">
-                  <span>{item.word}</span>
-                  <span className="badge bg-primary rounded-pill">{item.count}</span>
-                </div>
-              </ListGroup.Item>
-            ))}
-          </ListGroup>
-        </Card>
-      )}
-    </Container>
+        {results && (
+          <Card className="results-card">
+            <Card.Header className="bg-dark text-white">Top 10 palabras más frecuentes</Card.Header>
+            <ListGroup variant="flush">
+              {results.map((item, index) => (
+                <ListGroup.Item key={index}>
+                  <div className="d-flex justify-content-between align-items-center">
+                    <span>{item.word}</span>
+                    <span className="badge bg-primary rounded-pill">{item.count}</span>
+                  </div>
+                </ListGroup.Item>
+              ))}
+            </ListGroup>
+          </Card>
+        )}
+      </Container>
+    </div>
   );
 }
 
-export default TopWords; 
+export default TopWords;

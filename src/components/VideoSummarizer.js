@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Container, Form, Button, Card, Spinner, Alert } from 'react-bootstrap';
+import { FaYoutube } from 'react-icons/fa'; // Ícono decorativo
 
 function SummarizeVideo() {
   const [url, setUrl] = useState('');

@@ -1,56 +1,79 @@
-/* App.css */
+/* Estilos globales para toda la aplicación */
+
+/* Fondo azul marino con efecto dinámico */
 body {
+  background: linear-gradient(135deg, rgba(10, 10, 30, 1) 0%, rgba(0, 0, 50, 1) 100%);
+  background-size: 200% 200%;
+  animation: gradientBackground 5s ease infinite;
   font-family: Arial, sans-serif;
-  background-color: #f0f2f5;
   margin: 0;
   padding: 0;
+  color: white;
 }
 
-.calculator {
-  max-width: 360px;
-  margin: 50px auto;
-  background-color: white;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  text-align: center;
+/* Animación de fondo dinámico */
+@keyframes gradientBackground {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
-.screen input {
+/* Estilo de input con ícono */
+.input-with-icon {
+  position: relative;
   width: 100%;
-  height: 40px;
-  text-align: right;
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
 }
 
-.buttons button {
-  width: 60px;
-  height: 60px;
-  font-size: 1.2rem;
-  margin: 5px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  background-color: #f4f4f4;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
+/* Estilo del ícono */
+.input-icon {
+    position: absolute;
+    top: 50%;
+    left: 14px;
+    transform: translateY(-50%);
+    color: #FF0000;
+    font-size: 1.2rem;
+    pointer-events: none;
+    z-index: 2;
+  }
 
-.buttons button:hover {
-  background-color: #e0e0e0;
-}
+  .input-glass {
+    padding-left: 44px; /* Espacio suficiente para que no se solape con el ícono */
+    background: white;
+    color: black;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    height: 45px;
+    width: 100%; /* Adjusted to make the box longer */
+    transition: all 0.3s ease;
+  }
+  .input-glass::placeholder {
+    color: #ccc;
+  }
+/* .input-glass:focus {
+  outline: none;
+  border-color: #ffffff;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.12);
+} */
 
-.buttons button:active {
-  background-color: #d0d0d0;
-}
-
+/* Estilo de los botones */
 button {
-  font-weight: bold;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
 }
 
-h1 {
-  margin-bottom: 20px;
+button:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.7);
+}
+
+button:disabled {
+  background-color: rgba(0, 123, 255, 0.5);
+  cursor: not-allowed;
 }

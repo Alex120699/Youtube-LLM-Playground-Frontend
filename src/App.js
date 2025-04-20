@@ -7,6 +7,7 @@ import VideoSummarizer from './components/VideoSummarizer';
 import Transcriber from './components/Transcriber';
 import ChatWithVideo from './components/ChatWithVideo';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css'; // Importa tu CSS personalizado aquí
 
 function App() {
   return (
