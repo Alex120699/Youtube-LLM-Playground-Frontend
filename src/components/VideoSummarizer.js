@@ -43,8 +43,9 @@ function SummarizeVideo() {
   };
 
   return (
-    <Container className="mt-5">
-      <h1 className="text-center mb-4">Resumen del video</h1>
+    <div className="topwords-background">
+      <Container className="py-5">
+        <h1 className="text-center text-light mb-5 title-glow">Resumen de Video</h1>
 
       <Card className="mb-4">
         <Card.Body>
@@ -109,6 +110,7 @@ function SummarizeVideo() {
         </Card>
       )}
     </Container>
+    </div>
   );
 }
 
