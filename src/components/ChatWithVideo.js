@@ -106,7 +106,7 @@ function ChatWithVideo() {
   return (
     <div className="container mt-4">
       <h2>Chat with Video Context</h2>
-
+    
       {!transcribed && (
         <div className="mb-3">
           <input

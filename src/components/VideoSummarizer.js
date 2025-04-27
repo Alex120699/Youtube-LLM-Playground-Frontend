@@ -47,20 +47,23 @@ function SummarizeVideo() {
       <Container className="py-5">
         <h1 className="text-center text-light mb-5 title-glow">Resumen de Video</h1>
 
-      <Card className="mb-4">
-        <Card.Body>
+      <div className="glass-card mx-auto mb-4 p-4">
           <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3">
-              <Form.Label>URL del video de YouTube</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="https://www.youtube.com/watch?v=..."
-                value={url}
-                onChange={(e) => setUrl(e.target.value)}
-                required
-              />
+              <Form.Label className="text-white">URL del video de YouTube</Form.Label>
+              <div className="input-with-icon">
+                <FaYoutube className="input-icon" />
+                <input
+                  className="input-glass"
+                  type="text"
+                  placeholder="https://www.youtube.com/watch?v=..."
+                  value={url}
+                  onChange={(e) => setUrl(e.target.value)}
+                  required
+                />
+              </div>
             </Form.Group>
-            <Button variant="primary" type="submit" disabled={loading}>
+            <Button className="custom-btn" type="submit" disabled={loading}>
               {loading ? (
                 <>
                   <Spinner
@@ -74,12 +77,11 @@ function SummarizeVideo() {
                   Resumiendo...
                 </>
               ) : (
-                'Generar Resumen'
+                'Obtener texto'
               )}
             </Button>
           </Form>
-        </Card.Body>
-      </Card>
+      </div>
 
       {error && (
         <Alert variant="danger">
